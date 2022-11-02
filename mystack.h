@@ -51,7 +51,7 @@ bool Stack<V>::pop()
 template<typename V>
 bool Stack<V>::push(V value)
 {
-	bool flag = list->push_back(value, value);
+	bool flag = list->push_front(value, value);
 	if (flag)
 	{
 		mtx.lock();
