@@ -32,8 +32,7 @@ Stack<V>::~Stack()
 template<typename V>
 V Stack<V>::top()
 {
-	Node<V,V>* node = list->head->next;
-	return node->getValue();
+	return list->head->next->getValue();
 }
 
 template<typename V>
