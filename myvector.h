@@ -6,12 +6,14 @@ class Vector {
 public:
 	Vector();
 	~Vector();
+	Vector( Vector& vector);
 	bool push_back(V value);
 	int count(V value) const;
 	int getSize() const;
 	int getCapacity() const;
 	V erase(V value);
 	void display() const;
+	V& operator[](int index);
 
 private:
 	bool restart();
@@ -34,6 +36,25 @@ template<typename V>
 Vector<V>::~Vector()
 {
 	delete[] v;
+}
+
+template<typename V>
+Vector<V>::Vector( Vector& vector)
+{
+	delete[] v;
+	size = vector.getSize();
+	capacity = vector.getCapacity();
+	v = new V[capacity];
+	for (int i = 0; i < size; i++)
+	{
+		*(v + i) = vector[i];
+	}
+}
+
+template<typename V>
+V& Vector<V>::operator[](int index)
+{
+	return *(v + index);
 }
 
 template<typename V>
