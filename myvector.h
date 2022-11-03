@@ -7,11 +7,11 @@ public:
 	Vector();
 	~Vector();
 	bool push_back(V value);
-	int count(V value);
-	int getSize();
-	int getCapacity();
+	int count(V value) const;
+	int getSize() const;
+	int getCapacity() const;
 	V erase(V value);
-	void display();
+	void display() const;
 
 private:
 	bool restart();
@@ -55,7 +55,7 @@ bool Vector<V>::push_back(V value)
 
 
 template<typename V>
-int Vector<V>::count(V value)
+int Vector<V>::count(V value) const
 {
 	int cnt = 0;
 	for (int i = 0; i < size; i++)
@@ -84,8 +84,8 @@ V Vector<V>::erase(V value)
 	}
 }
 
-template<typename V>
-void Vector<V>::display()
+template<typename V> 
+void Vector<V>::display() const
 {
 	for (int i = 0; i < size; i++)
 	{
@@ -122,13 +122,13 @@ bool Vector<V>::restart()
 
 
 template<typename V>
-int Vector<V>::getSize()
+int Vector<V>::getSize() const
 {
 	return size;
 }
 
 template<typename V>
-int Vector<V>::getCapacity()
+int Vector<V>::getCapacity() const
 {
 	return capacity;
 }
