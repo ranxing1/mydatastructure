@@ -7,10 +7,10 @@ class Stack {
 public:
 	Stack();
 	~Stack();
-	V top();
+	V top() const;
 	bool pop();
 	bool push(V value);
-	int getSize();
+	int getSize() const;
 private:
 	List<V, V>* list;
 	int size;
@@ -30,7 +30,7 @@ Stack<V>::~Stack()
 }
 
 template<typename V>
-V Stack<V>::top()
+V Stack<V>::top() const
 {
 	return list->head->next->getValue();
 }
@@ -62,7 +62,7 @@ bool Stack<V>::push(V value)
 }
 
 template<typename V>
-int Stack<V>::getSize()
+int Stack<V>::getSize() const
 {
 	return size;
 }

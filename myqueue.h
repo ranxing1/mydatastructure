@@ -6,10 +6,10 @@ class Queue {
 public:
 	Queue();
 	~Queue();
-	V top();
+	V top() const;
 	bool pop();
 	bool push(V value);
-	int getSize();
+	int getSize() const;
 private:
 	List<V, V>* list;
 	int size;
@@ -29,7 +29,7 @@ Queue<V>::~Queue()
 }
 
 template<typename V>
-V Queue<V>::top()
+V Queue<V>::top() const
 {
 	return list->head->next->getValue();
 }
@@ -61,7 +61,7 @@ bool Queue<V>::push(V value)
 }
 
 template<typename V>
-int Queue<V>::getSize()
+int Queue<V>::getSize() const
 {
 	return size;
 }
